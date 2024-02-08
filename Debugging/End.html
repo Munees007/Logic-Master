@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FINAL PAGE</title>
+    <link rel="stylesheet" href="endstyle.css">
+</head>
+<body>
+    <div id="Container">
+        <div id ="ScoreBoard">
+        <p id="title">FINISHED SUCCESSFULLY</p>
+
+            <p id="name">P.Muneeswaran</p>
+
+            <p id="roll">22UL80</p>
+        <p id = "Score">0</p>
+        <p id="apptitute">APPTITUDE : </p>
+        <p id = "Time">0</p>
+        <p id="debug">DEBUGGING : </p>
+        <p id = "Count">0</p>
+        <p id="TimeText">Time : </p>
+        </div>
+    </div>
+   <script>
+    window.onload = function()
+    {
+        document.getElementById("name").innerHTML = localStorage.getItem("UserName");
+        document.getElementById("roll").innerHTML = localStorage.getItem("UserRoll");
+        document.getElementById("Score").innerHTML = localStorage.getItem("Score");
+        document.getElementById("Count").innerHTML = localStorage.getItem("CorrectCount");
+        let timebehing = localStorage.getItem('timerRemainingTime');
+        document.getElementById("Time").innerHTML = formatTime(timebehing);
+    }
+    function pad(number) {
+      return (number < 10 ? "0" : "") + number;
+    }
+    function formatTime(seconds) {
+      const hours = Math.floor(seconds / 3600);
+      const minutes = Math.floor((seconds % 3600) / 60);
+      const remainingSeconds = seconds % 60;
+
+      return (
+        pad(hours) + ":" +
+        pad(minutes) + ":" +
+        pad(remainingSeconds)
+      );
+    }
+   </script>
+</body>
+</html>

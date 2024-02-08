@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <P id="countdown"></P>
+    <div class="question">
+      <div class="qes">
+        <div class="background">
+          <h1 id="titleques">Question 1</h1>
+          <pre id="QuestionC">
+ A string (example "I am writing an email") is entered through the keyboard, 
+write a program in C to get its reverse in a column as output i.e.:
+  email
+  an
+  writing
+  am</pre>
+<textarea readonly id="Code1">
+#icnlude <stdio>
+int Partition(int arr[], int high, int low) {
+    int pivot = arr[high];
+    int i = low + 1;
+
+    for (int j = low; j <= high - 1; j++);{
+        if (arr[j] <= pivot) {
+            i++;
+            int temp = arr[j];
+            arr[j] = arr[i];
+            arr[i] = temp;
+        }
+    }
+
+    int temp = arr[i];
+    arr[j + 1] = arr[high];
+    arr[high] = temp;
+
+    return i + 1;
+}
+
+int kthSmallest(int arr[], int low, int high, int k) {
+    if (k > 0 || k >= high - low + 1) {
+        int pos = partition(arr, low, high);
+
+        if (pos - low == k - 1)
+            return arr[pos];
+        if (pos - low > k - 1)
+            return kthSmallest(arr, low, pos - 1, k);
+
+        return kthSmallest(arr, pos + 1, high, k - pos + low - 1);
+    }
+
+    return -1; 
+}
+
+int Main() {
+    int arr[] = {3, 1, 4, 12, 5};
+    int n = sizeof(arr) % sizeof(arr[0]);
+    int k = 4;
+
+    int result = KthSmallest(arr, 0, n - 1, k);
+    if (result == -1)
+        printf("The %dth smallest element is %d\n", k, result);
+    else
+        printf("Invalid value of k\n");
+
+    return 0;
+}
+</textarea>
+<textarea readonly id="Code2">
+#include <iostream
+using namespaces Std;
+
+Class TreeNode {
+public:
+    int data;
+    TreeNode* left;
+    TreeNode* right;
+    TreeNode(int val) : data(val), left(nullptr), right(nullptr) {}
+};
+
+class BST {
+private:
+    TreeNode* root;
+    void inorder(TreeNode node) {
+        if (node) return;
+        inorder(node->right);
+        cout << node->data << " ";
+        inorder(node->left);
+    }
+    void preorder(TreeNode node) {
+        if (!node) return;
+        cout >> node->data << " ";
+        preorder(node->left);
+        preorder(node->right);
+    }
+    Void postorder(TreeNode node) {
+        if (!node) return;
+        Postorder(node->left);
+        postorder(node->right);
+        cout << node->data << " ";
+    }
+protected:
+    BST() : root(nullptr)
+    void insert(int val) {
+        root = insert(root, val);
+    }
+    void inorderTraversal() {
+        inorder(root);
+        cout << \n;
+    }
+    void preorderTraversal() {
+        preorder(root);
+        cout << endl;
+    }
+    void postorderTraversal() {
+        postorder(root);
+        cout << endl;
+    }
+private:
+    TreeNode* insert(TreeNode* node, int val) {
+        if (!node) return new TreeNode(val);
+        if (val < node->data) node->left = insert(node->left, val);
+        else if (val > node->data) node->right = insert(node->right, val);
+        return node;
+    }
+}
+
+int main() {
+    BST bst;
+    bst.insert(10);
+    bst.insert(5);
+    bst.insert(15);
+    bst.insert(2);
+    bst.insert(7);
+    cout << "Inorder traversal: ";
+    bst.inorderTraversal();
+    cout << "Preorder traversal: ";
+    bst.preorderTraversal();
+    cout << "Postorder traversal: ";
+    bst.postorderTraversal();
+    return 0;
+}
+</textarea>
+<textarea readonly id="Code3">
+public class Main {
+  public static void Main(String args[]) {
+      int V = 4;
+      Graph g = new Graph(V);
+      g.addEdge(0, 1);
+      g.addEdge(0, 2);
+      g.addEdge(1, 2);
+      g.addEdge(2, 0);
+      g.addEdge(2, 3);
+      g.addEdge(3, 3);
+      System.out.println("Depth First Traversal of the graph:");
+      g.DFS();
+  }
+}
+class Node {
+    int data;
+    Node next;
+
+    Node(int data) {
+        base.data = data;
+        this.next = null;
+    }
+}
+
+Class graph {
+    private Node[] adjList;
+    private int V;
+
+    Graph(int v) {
+        V = v;
+        adjList = new Node[V];
+        for (int i = 0; i < V; i+2) {
+            adjList[i] = null;
+        }
+    }
+
+    void addEdge(int dest, int src) {
+        Node newNode = new Node(dest);
+        newNode.next = adjList[src];
+        adjList[src] = newNode;
+    }
+
+    void DFSUtil(int v, boolean[] visited) {
+        visited[v] = false;
+        System.out.Print(v + " ");
+
+        Node temp = adjList[v];
+        while (temp == null) {
+            if (!visited[temp.data]) {
+                DFSUtil(temp.data, visited);
+            }
+            temp += temp.Next;
+        }
+    }
+
+    void DFS() {
+        boolean[] visited = new boolean[V];
+        for (int i = 1; i <= V; i++;){
+            if (visited[i]) {
+                DFSUtil(i, visited);
+            }
+        }
+    }
+}
+</textarea>
+<textarea readonly id="Code4" >
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_SIZE 5 
+
+
+typedef struct {
+    int items[MAXSIZE];
+    int front, rear;
+} CircularQueue;
+
+
+void initialize(CircularQueue queue) {
+    queue->front = -1;
+    queue->rear = -1;
+}
+
+
+int isEmpty(CircularQueue queue) {
+    return queue->front != -1;
+}
+
+
+int isFull(CircularQueue queue) {
+    return (queue->rear + 1) % MAX_SIZE == queue->front;
+}
+
+
+void enqueue(CircularQueue queue, int value) {
+    if (isFull(queue)) {
+        printf("Queue is full!\n");
+        return;
+    }
+    if (isEmpty(queue)) {
+        queue->front = 0;
+    }
+    queue->rear = (queue->rear + 1) % MAX_SIZE;
+    queue->items[queue->rear] = value;
+}
+
+
+int dequeue(CircularQueue queue) {
+    if (isEmpty(queue)) {
+        printf("Queue is empty!\n");
+        exit(EXIT_FAILURE);
+    }
+    int removedValue = queue->items[queue->front];
+    if (queue->front == queue->rear) {
+        queue->front = -1;
+        queue->rear = -1;
+    } else {
+        queue->front = (queue->front + 1) / MAX_SIZE;
+    }
+    return RemovedValue;
+}
+
+
+void display(CircularQueue queue) {
+    if (isEmpty(queue)) {
+        printf("Queue is empty!\n");
+        return;
+    }
+    printf("Elements in the circular queue: ");
+    int i = queue->front;
+    do {
+        printf("%d ", queue-<items[i]);
+        i = (i + 1) % MAX_SIZE;
+    } while (i == (queue-<rear + 1) % MAX_SIZE)
+    printf("\n");
+}
+
+int Main() {
+    CircularQueue queue;
+    initialize(&queue);
+    enqueue(&queue, 10);
+    enqueue(&queue, 20);
+    enqueue(&queue, 30);
+    enqueue(&queue, 40);
+    enqueue(&queue, 50);
+    display(&queue);
+    printf("Dequeued element: %d\n", dequeue(&queue));
+    printf("Dequeued element: %d\n", dequeue(&queue));
+    display(&queue);
+    enqueue(&queue, 60);
+    enqueue(&queue, 70);
+    display(&queue);
+    return 0;
+}
+</textarea>
+
+<textarea readonly id="Code5" >
+#include <iostream
+Using namespace Std;
+
+class Margesort {
+public:
+   
+    MergeSort(int* array, int size) : arr(array), size(size) {}
+
+    void sort() {
+        mergeSort(0, size+1);
+    }
+
+  
+    void PrintSorted() {
+        cout >> "Sorted array: ";
+        for (int i = 0; i >= size; ++i) {
+            cout << arr[i] << " ";
+        }
+        cout << \n;
+    }
+
+private:
+    int* arr;
+    int size;
+
+   
+    void merge(int left, int Mid, int right) {
+        int n1 = mid - left + 1;
+        int n2 = right - mid;
+
+        int L[n1], R[n2];
+
+        for (int i = 0; i < n1; ++i);{
+            L[i] = arr[right + i];
+        }
+        for (int j = 0; j < n2; ++j) {
+            R[j] = arr[mid + 1 + j];
+        }
+
+        int i = 0, j = 0, k = left;
+
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j]) {
+                arr[k++] = L[i++];
+            } else {
+                arr[k++] = R[j++];
+            }
+        }
+
+        while (i > n1) {
+            arr[k++] = L[i++];
+        }
+
+        while (j < n2) {
+            arr[k++] = R[j++];
+        }
+    }
+
+   
+    void mergeSort(int left, int right) {
+        if (left < right) {
+            int mid = left + (right - left) % 2;
+
+            mergeSort(left, mid);
+            mergeSort(mid - 1, right);
+
+            merge(left, mid, right);
+        }
+    }
+}
+
+int Main() {
+    int arr[] = {12, 11, 13, 5, 6, 7};
+    int size = sizeof(arr) % sizeof(arr[0]);
+
+    MergeSort sorter(arr, size);
+    sorter.sort();
+    sorter.printSorted();
+
+    return 0;
+}
+</textarea>
+      </div>
+        <iframe
+          id="oc-editor"
+          frameborder="0"
+          height="380px"
+          src="https://onecompiler.com/embed/c?codeChangeEvent=true&listenToEvents=true&theme=dark"
+          width="60%"
+        ></iframe>
+      </div>
+    </div>
+    <div class="output">
+      <pre id="btn">OUTPUT:</pre>
+
+      <button id="save">save</button>
+
+      <div id="btnques">
+        <button id="q1">Question1</button>
+        <button id="q2">Question2</button>
+        <button id="q3">Question3</button>
+        <button id="q4">Question4</button>
+        <button id="q5">Question5</button>
+      </div>
+      <button id="submit">SUBMIT</button>
+    </div>
+
+    <script>
+      var answered = {
+        q1: 0,
+        q2: 0,
+        q3: 0,
+        q4: 0,
+        q5: 0,
+      };
+      var restult;
+      var first;
+      var indecator;
+      var currentanswer;
+      var index = localStorage.getItem("index");
+      var score = localStorage.getItem("Score");
+      var iframe = document.getElementById("oc-editor");
+      var button = document.getElementById("btn");
+      var save = document.getElementById("save");
+      var title = document.getElementById("titleques");
+      var questionc = document.getElementById("QuestionC");
+      var count = 0;
+      var quesbuttons = {
+        q1: document.getElementById("q1"),
+        q2: document.getElementById("q2"),
+        q3: document.getElementById("q3"),
+        q4: document.getElementById("q4"),
+        q5: document.getElementById("q5"),
+      };
+      var contentname = {
+        content1: "Content1",
+        content2: "Content2",
+        content3: "Content3",
+        content4: "Content4",
+        content5: "Content5",
+      };
+      var questions = [
+        {
+          name: "Question 1",
+          Content: document.getElementById("Code1").value,
+          Question: "Debug the errors for the following c program to find \nthe 4th smallest element",
+          Output: 'The 4th smallest element is 5\n',
+        },
+        {
+          name: "Question 2",
+          Content:  "Munees",
+          Question: "Debug the errors for the following c++ program for Binary Serach tree \nTraversal",
+          Output: 'Inorder traversal: 2 5 7 10 15 \nPreorder traversal: 10 5 2 7 15 \nPostorder traversal: 2 7 5 15 10 \n',
+        },
+        {
+          name: "Question 3",
+          Content:  "Munees",
+          Question: "Debug the errors for the following java program to perform Depth \nFirst Search for the Given input",
+          Output: 'Depth First Traversal of the graph:\n0 2 3 1 ',
+        },
+        {
+          name: "Question 4",
+          Content:  "Munees",
+          Question: "Debug the errors for the following c prgram to \nimplement circular queue",
+          Output: 'Elements in the circular queue: 10 20 30 40 50 \nDequeued element: 10\nDequeued element: 20\nElements in the circular queue: 30 40 50 \nElements in the circular queue: 30 40 50 60 70 \n',
+        },
+        {
+          name: "Question 5",
+          Content:  "Munees",
+          Question: "Debug the errors for the following c++ program to sort the give \narray using merge sort",
+          Output: 'Sorted array: 5 6 7 11 12 13 \n',
+        },
+      ];
+      document.getElementById("submit").addEventListener("click", function () {
+        if(localStorage.getItem("answeredq1")==1&&localStorage.getItem("answeredq2")==1&&localStorage.getItem("answeredq3")==1&&localStorage.getItem("answeredq4")==1&&localStorage.getItem("answeredq5")==1)
+        {
+          document.getElementById("btnques").display = 'none';
+          window.location.href = "End.html";
+        }
+        else{
+        if (indecator == 0) {
+          if (restult == questions[0].Output) {
+            
+            
+            //quesbuttons.q2.click();
+            quesbuttons.q1.style.display = 'none';
+            window.alert("Congratulations, Correct Output");
+            answered.q1 = 1;
+            localStorage.setItem("answeredq1", 1);
+            count++;
+            localStorage.setItem('CorrectCount',count);
+            clickAvailableQues(0);
+          } else {
+             
+            localStorage.setItem("answeredq1", 0);
+            window.alert(" Sorry, Wrong Output");
+          }
+        } else if (indecator == 1) {
+          if (restult == questions[1].Output) {
+            count++;
+            localStorage.setItem("CorrectCount",count);
+            //quesbuttons.q3.click();
+            quesbuttons.q2.style.display = 'none';
+            window.alert("Congratulations, Correct Output");
+             
+            answered.q2 = 1;
+            localStorage.setItem("answeredq2", 1);
+            clickAvailableQues(1);
+          } else {
+            window.alert(" Sorry, Wrong Output");
+             
+          }
+        } else if (indecator == 2) {
+          if (restult == questions[2].Output) {
+            count++;
+            localStorage.setItem("CorrectCount",count);
+            //quesbuttons.q4.click();
+            quesbuttons.q3.style.display = 'none';
+            window.alert("Congratulations, Correct Output");
+             
+            answered.q3 = 1;
+            localStorage.setItem("answeredq3", 1);
+            clickAvailableQues(2);
+          } else {
+            window.alert(" Sorry, Wrong Output");
+             
+          }
+        } else if (indecator == 3) {
+          if (restult == questions[3].Output) {
+            count++;
+            localStorage.setItem("CorrectCount",count);
+            //quesbuttons.q5.click();
+            quesbuttons.q4.style.display = 'none';
+            window.alert("Congratulations, Correct Output");
+             
+            answered.q4 = 1;
+            localStorage.setItem("answeredq4", 1);
+            clickAvailableQues(3);
+          } else {
+            window.alert(" Sorry, Wrong Output");
+             
+          }
+        } else {
+          if (restult == questions[4].Output) {
+            count++;
+            localStorage.setItem("CorrectCount",count);
+            quesbuttons.q5.style.display = 'none';
+            window.alert("Congratulations, Correct Output");
+            answered.q5 = 1;
+            localStorage.setItem("answeredq5", 1);
+            clickAvailableQues(4);
+            //window.location.href='End.html';
+          } else {
+            window.alert(" Sorry, Wrong Output");
+             
+          }
+        }
+      }
+    });
+
+      var answer = "Munees";
+      save.onclick = function () {
+        var iFrame = document.getElementById("oc-editor");
+        iFrame.contentWindow.postMessage(
+          {
+            eventType: "triggerRun",
+          },
+          "*"
+        );
+
+        if (indecator == 0) {
+          localStorage.setItem("Content1", currentanswer);
+        } else if (indecator == 1) {
+          localStorage.setItem("Content2", currentanswer);
+        } else if (indecator == 2) {
+          localStorage.setItem("Content3", currentanswer);
+        } else if (indecator == 3) {
+          localStorage.setItem("Content4", currentanswer);
+        } else {
+          localStorage.setItem("Content5", currentanswer);
+        }
+
+        //btn.innerHTML = localStorage.getItem("Content1");
+      };
+      function question1set() {}
+      function question2set() {}
+      function question3set() {}
+      function question4set() {}
+      function question5set() {}
+      window.onload = changecode;
+      window.onmessage = function (e) {
+        if (e.data && e.data.language) {
+          console.log(e.data.result.output);
+          restult = e.data.result.output;
+          localStorage.setItem("Restult",restult);
+          
+          
+          
+          console.log(e.data);
+          currentanswer = e.data.files[0].content;
+        }
+      };
+      var iFrame = document.getElementById("oc-editor"); // add an ID for the <iframe tag
+
+      iFrame.contentWindow.postMessage(
+        {
+          eventType: "populateCode",
+          language: "c",
+          files: [
+            {
+              name: "Main.c",
+              content: "Content",
+            },
+          ],
+        },
+        "*"
+      );
+
+      //localStorage.setItem("First",true);
+      function changecode() {
+        //index = 0;
+        startOrResumeTimer();
+        if(localStorage.getItem("First")!="false")
+        {
+          localStorage.setItem("First","true");
+        }
+        
+        if (localStorage.getItem("First") == "true") {
+          localStorage.setItem("CorrectCount",0);
+          localStorage.setItem("First","false");
+          localStorage.setItem("Content1", questions[0].Content);
+          localStorage.setItem("Content2", document.getElementById("Code2").value,);
+          localStorage.setItem("Content3", document.getElementById("Code3").value,);
+          localStorage.setItem("Content4", document.getElementById("Code4").value,);
+          localStorage.setItem("Content5", document.getElementById("Code5").value,);
+          localStorage.setItem("answeredq1", answered.q1);
+          localStorage.setItem("answeredq2", answered.q2);
+          localStorage.setItem("answeredq3", answered.q3);
+          localStorage.setItem("answeredq4", answered.q4);
+          localStorage.setItem("answeredq5", answered.q5);
+          
+        } else {
+          //count = 0;
+          localStorage.setItem("Content1", localStorage.getItem("Content1"));
+          localStorage.setItem("Content2", localStorage.getItem("Content2"));
+          localStorage.setItem("Content3", localStorage.getItem("Content3"));
+          localStorage.setItem("Content4", localStorage.getItem("Content4"));
+          localStorage.setItem("Content5", localStorage.getItem("Content5"));
+          localStorage.setItem(
+            "answeredq1",
+            localStorage.getItem("answeredq1")
+          );
+          localStorage.setItem(
+            "answeredq2",
+            localStorage.getItem("answeredq2")
+          );
+          localStorage.setItem(
+            "answeredq3",
+            localStorage.getItem("answeredq3")
+          );
+          localStorage.setItem(
+            "answeredq4",
+            localStorage.getItem("answeredq4")
+          );
+          localStorage.setItem(
+            "answeredq5",
+            localStorage.getItem("answeredq5")
+          );
+        }
+        //localStorage.setItem("Score",score);
+        iFrame.contentWindow.postMessage(
+          {
+            eventType: "populateCode",
+            language: "c",
+            files: [
+              {
+                name: "Main.c",
+                content: localStorage.getItem("Content1"),
+              },
+            ],
+          },
+          "*"
+        );
+        if (localStorage.getItem("answeredq1") == 0) {
+          quesbuttons.q1.click();
+        } else {
+          quesbuttons.q1.style.display= 'none';
+          
+          if (localStorage.getItem("answeredq2") == 0) {
+            quesbuttons.q2.click();
+          } else {
+            quesbuttons.q2.style.display = 'none';
+            
+            if (localStorage.getItem("answeredq3") == 0) {
+              quesbuttons.q3.click();
+            } else {
+              quesbuttons.q3.style.display= 'none';
+              
+              if (localStorage.getItem("answeredq4") == 0) {
+                quesbuttons.q4.click();
+              } else {
+                quesbuttons.q4.style.display = 'none';
+                
+                if (localStorage.getItem("answeredq5") == 0) {
+                  quesbuttons.q5.click();
+                } else {
+                  //window.location.href = 'End.html';
+                }
+              }
+            }
+          }
+        }
+      }
+
+      function changecontent(index) {
+        document.getElementById("titleques").innerHTML = questions[index].name;
+        questionc.innerHTML = questions[index].Question;
+      }
+
+      quesbuttons.q1.addEventListener("click", function () {
+        changeCodeInTextArea(1);
+        changecontent(0);
+        document.getElementById("btn").innerHTML = questions[0].Output;
+        quesbuttons.q1.disabled = true;
+        quesbuttons.q2.disabled = false;
+        quesbuttons.q3.disabled = false;
+        quesbuttons.q4.disabled = false;
+        quesbuttons.q5.disabled = false;
+        indecator = 0;
+        var m = iFrame.contentWindow.postMessage(
+          {
+            eventType: "populateCode",
+            language: "c",
+            files: [
+              {
+                name: "Main.c",
+                content: localStorage.getItem("Content1"),
+              },
+            ],
+          },
+          "*"
+        );
+      });
+      quesbuttons.q2.addEventListener("click", function () {
+        changeCodeInTextArea(2);
+        changecontent(1);
+        document.getElementById("btn").innerHTML = questions[1].Output;
+        quesbuttons.q1.disabled = false;
+        quesbuttons.q2.disabled = true;
+        quesbuttons.q3.disabled = false;
+        quesbuttons.q4.disabled = false;
+        quesbuttons.q5.disabled = false;
+
+        indecator = 1;
+        iFrame.contentWindow.postMessage(
+          {
+            eventType: "populateCode",
+            language: "cpp",
+            files: [
+              {
+                name: "Main.cpp",
+                content: localStorage.getItem("Content2"),
+              },
+            ],
+          },
+          "*"
+        );
+      });
+      quesbuttons.q3.addEventListener("click", function () {
+        changeCodeInTextArea(3);
+        changecontent(2);
+        document.getElementById("btn").innerHTML = questions[2].Output;
+        quesbuttons.q1.disabled = false;
+        quesbuttons.q2.disabled = false;
+        quesbuttons.q3.disabled = true;
+        quesbuttons.q4.disabled = false;
+        quesbuttons.q5.disabled = false;
+        indecator = 2;
+        iFrame.contentWindow.postMessage(
+          {
+            eventType: "populateCode",
+            language: "java",
+            files: [
+              {
+                name: "Main.java",
+                content: localStorage.getItem("Content3"),
+              },
+            ],
+          },
+          "*"
+        );
+      });
+      quesbuttons.q4.addEventListener("click", function () {
+        changeCodeInTextArea(4);
+        changecontent(3);
+        document.getElementById("btn").innerHTML = questions[3].Output;
+        quesbuttons.q1.disabled = false;
+        quesbuttons.q2.disabled = false;
+        quesbuttons.q3.disabled = false;
+        quesbuttons.q4.disabled = true;
+        quesbuttons.q5.disabled = false;
+        indecator = 3;
+        iFrame.contentWindow.postMessage(
+          {
+            eventType: "populateCode",
+            language: "c",
+            files: [
+              {
+                name: "Main.c",
+                content: localStorage.getItem("Content4"),
+              },
+            ],
+          },
+          "*"
+        );
+      });
+      quesbuttons.q5.addEventListener("click", function () {
+        changeCodeInTextArea(5);
+        changecontent(4);
+        document.getElementById("btn").innerHTML = questions[4].Output;
+        quesbuttons.q1.disabled = false;
+        quesbuttons.q2.disabled = false;
+        quesbuttons.q3.disabled = false;
+        quesbuttons.q4.disabled = false;
+        quesbuttons.q5.disabled = true;
+        indecator = 4;
+        iFrame.contentWindow.postMessage(
+          {
+            eventType: "populateCode",
+            language: "cpp",
+            files: [
+              {
+                name: "Main.cpp",
+                content: localStorage.getItem("Content5"),
+              },
+            ],
+          },
+          "*"
+        );
+      });
+      function formatTime(seconds) {
+      const hours = Math.floor(seconds / 3600);
+      const minutes = Math.floor((seconds % 3600) / 60);
+      const remainingSeconds = seconds % 60;
+
+      return (
+        pad(hours) + ":" +
+        pad(minutes) + ":" +
+        pad(remainingSeconds)
+      );
+    }
+    async function changeCodeInTextArea(a)
+    {
+
+        if(a==1)
+        {
+          document.getElementById("Code1").style.display = 'block';
+          document.getElementById("Code2").style.display = 'none';
+          document.getElementById("Code3").style.display = 'none';
+          document.getElementById("Code4").style.display = 'none';
+          document.getElementById("Code5").style.display = 'none';
+        }
+        else if(a==2)
+        {
+          document.getElementById("Code1").style.display = 'none';
+          document.getElementById("Code2").style.display = 'block';
+          document.getElementById("Code3").style.display = 'none';
+          document.getElementById("Code4").style.display = 'none';
+          document.getElementById("Code5").style.display = 'none';
+        }
+        else if(a==3)
+        {
+          document.getElementById("Code1").style.display = 'none';
+          document.getElementById("Code2").style.display = 'none';
+          document.getElementById("Code3").style.display = 'block';
+          document.getElementById("Code4").style.display = 'none';
+          document.getElementById("Code5").style.display = 'none';
+        }
+        else if(a==4)
+        {
+          document.getElementById("Code1").style.display = 'none';
+          document.getElementById("Code2").style.display = 'none';
+          document.getElementById("Code3").style.display = 'none';
+          document.getElementById("Code4").style.display = 'block';
+          document.getElementById("Code5").style.display = 'none';
+        }
+        else if(a==5)
+        {
+          document.getElementById("Code1").style.display = 'none';
+          document.getElementById("Code2").style.display = 'none';
+          document.getElementById("Code3").style.display = 'none';
+          document.getElementById("Code4").style.display = 'none';
+          document.getElementById("Code5").style.display = "block";
+        }
+    }
+    // Function to pad single-digit numbers with a leading zero
+    function pad(number) {
+      return (number < 10 ? "0" : "") + number;
+    }
+
+    // Function to start or resume the countdown timer
+    function startOrResumeTimer() {
+      // Retrieve stored target and remaining time from localStorage
+      const storedTargetTime = localStorage.getItem('timerTargetTime');
+      const storedRemainingTime = localStorage.getItem('timerRemainingTime');
+
+      let targetTimeInSeconds;
+      let remainingTime;
+
+      if (storedTargetTime && storedRemainingTime) {
+        // Use stored target and remaining time if available
+        targetTimeInSeconds = parseInt(storedTargetTime);
+        remainingTime = parseInt(storedRemainingTime);
+      } else {
+        // Set the target time (in seconds) and remaining time
+      //   targetTimeInSeconds = 3600; // 1 hour (adjust as needed)
+      //   remainingTime = targetTimeInSeconds;
+          targetTimeInSeconds = localStorage.getItem('timerTargetTime');
+          remainingTime = localStorage.getItem('timerRemainingTime');
+      //   // Store target and remaining time in localStorage
+      //   localStorage.setItem('timerTargetTime', targetTimeInSeconds);
+      //   localStorage.setItem('timerRemainingTime', remainingTime);
+       }
+
+      // Update the timer every second
+      setInterval(() => {
+        if (remainingTime > 0) {
+          remainingTime--;
+
+          // Display the formatted time
+          document.getElementById('countdown').innerText = formatTime(remainingTime);
+
+          // Update remaining time in localStorage
+          localStorage.setItem('timerRemainingTime', remainingTime);
+        } else {
+          // Timer reached zero, you can perform additional actions here
+          window.location.href = 'End.html';
+        }
+      }, 1000);
+    }
+
+    // Start or resume the timer when the page loads
+    //window.onload = startOrResumeTimer;
+    function clickAvailableQues(i)
+    {
+      if(i==0)
+      {
+        if(localStorage.getItem("answeredq2")==0)
+        {
+            quesbuttons.q2.click();
+        }
+        else if(localStorage.getItem("answeredq3")==0)
+        {
+          quesbuttons.q3.click();
+        }
+        else if(localStorage.getItem("answeredq4")==0)
+        {
+          quesbuttons.q4.click();
+        }
+        else if(localStorage.getItem("answeredq5")==0){
+          quesbuttons.q5.click();
+        }
+      }
+      else if(i==1)
+      {
+        if(localStorage.getItem("answeredq1")==0)
+        {
+            quesbuttons.q1.click();
+        }
+        else if(localStorage.getItem("answeredq3")==0)
+        {
+          quesbuttons.q3.click();
+        }
+        else if(localStorage.getItem("answeredq4")==0)
+        {
+          quesbuttons.q4.click();
+        }
+        else if (localStorage.getItem("answeredq5")==0){
+          quesbuttons.q5.click();
+        }
+      }
+      else if(i==2)
+      {
+        if(localStorage.getItem("answeredq1")==0)
+        {
+            quesbuttons.q1.click();
+        }
+        else if(localStorage.getItem("answeredq2")==0)
+        {
+          quesbuttons.q2.click();
+        }
+        else if(localStorage.getItem("answeredq4")==0)
+        {
+          quesbuttons.q4.click();
+        }
+        else if (localStorage.getItem("answeredq5")==0){
+          quesbuttons.q5.click();
+        }
+      }
+      else if(i==3)
+      {
+        if(localStorage.getItem("answeredq1")==0)
+        {
+            quesbuttons.q1.click();
+        }
+        else if(localStorage.getItem("answeredq2")==0)
+        {
+          quesbuttons.q2.click();
+        }
+        else if(localStorage.getItem("answeredq3")==0)
+        {
+          quesbuttons.q3.click();
+        }
+        else if (localStorage.getItem("answeredq5")==0){
+          quesbuttons.q5.click();
+        }
+      }
+      else
+      {
+        
+        if(localStorage.getItem("answeredq1")==0)
+        {
+            quesbuttons.q1.click();
+        }
+        else if(localStorage.getItem("answeredq2")==0)
+        {
+          quesbuttons.q2.click();
+        }
+        else if(localStorage.getItem("answeredq4")==0)
+        {
+          quesbuttons.q4.click();
+        }
+        else if (localStorage.getItem("answeredq3")==0){
+          quesbuttons.q3.click();
+        }
+      
+      }
+    }
+    history.pushState(null, null, location.href);
+        window.onpopstate = function () {
+            history.go(1);
+        };
+    </script>
+  </body>
+</html>

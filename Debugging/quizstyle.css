@@ -1,0 +1,86 @@
+body{
+    background-color:rgb(221, 221, 71);
+    height: 100%;
+    border: 3px solid black;
+    border-radius: 10px;
+    box-shadow: 1px 6px 6px 5px rgb(0, 0, 0);
+    scroll-behavior: smooth;
+}
+
+.Question1,.Question2,.Question3,.Question4,.Question5
+{
+    background-color: #121212;
+    width: 100%;
+    
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 1px solid white;
+    border-radius: 10px;
+    box-shadow: 1px 6px 6px 5px rgb(110, 110, 110);
+}
+label
+{
+    color: white;
+}
+h1{
+    color: white;
+    padding-left: 15px;
+}
+.options
+{
+    padding: 10px 15px;
+    background-color: gray;
+    border-radius: 10px;
+    border: 1px solid white;
+    box-shadow: 1px 6px 6px 5px rgb(0, 0, 0);
+}
+
+#title
+{
+    color: black;
+    text-align: center;
+    text-shadow:2px 2px 3px #121212;
+}
+input
+{
+    cursor: pointer;
+    
+}
+
+#btnsub
+{
+    background-color: green;
+    color: white;
+    margin-left: 92%;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    padding: 10px 20px;
+    border: 3px solid black;
+    border-radius: 10px;
+    box-shadow: 1px 2px 6px 5px rgb(0, 0, 0);
+}
+
+#btnsub:hover{
+    cursor: pointer;
+    box-shadow: 1px 2px 6px 5px green;
+    color: black;
+}
+
+#btnsub:active
+{
+    transform: scale(0.8,0.8);
+}
+#countdown
+{
+    background-color: #121212;
+    width: 5%;
+    color: white;
+    border-radius: 10px;
+    border: 1px solid white;
+    box-shadow: 1px 6px 6px 5px rgb(0, 0, 0);
+    padding: 10px 10px;
+    
+    position: fixed;
+    margin-left: 0%;
+    margin-top: -520px;
+}

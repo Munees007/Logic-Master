@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>APTITUDE</title>
+    <link rel="stylesheet" href="quizstyle.css" />
+  </head>
+  <body>
+    <h1 id="title">APTITUDE</h1>
+    <div class="Question1">
+      <h1>1.A train running at the speed of 60 km/hr crosses a pole in 9 seconds. what is the length of the train?</h1>
+      <div class="options">
+        <input type="radio" id="Q1A" name="q1option" />
+        <label for="Q1A">120 meters</label><br />
+        <input type="radio" id="Q1B" name="q1option" />
+        <label for="Q1B">180 meters</label><br />
+        <input type="radio" id="Q1C" name="q1option" />
+        <label for="Q1C">324 meters</label><br />
+        <input type="radio" id="Q1D" name="q1option" />
+        <label for="Q1D">150 meters</label><br />
+      </div>
+    </div>
+    <div class="Question2">
+      <h1>2.A starts business with Rs. 3500 and after 5 months, B joins with A as his partner. After a year, the profit is divided in the ratio 2 : 3. What is B's contribution in the capital?</h1>
+      <div class="options">
+        <input type="radio" id="Q2A" name="q2option" />
+        <label for="Q2A">Rs. 7500</label><br />
+        <input type="radio" id="Q2B" name="q2option" />
+        <label for="Q2B">Rs. 8000</label><br />
+        <input type="radio" id="Q2C" name="q2option" />
+        <label for="Q2C">Rs. 9000</label><br />
+        <input type="radio" id="Q2D" name="q2option" />
+        <label for="Q2D">Rs. 8500</label><br />
+      </div>
+    </div>
+    <div class="Question3">
+      <h1>3.26, 63, 124, 215, 342, ?</h1>
+      <div class="options">
+        <input type="radio" id="Q3A" name="q3option" />
+        <label for="Q3A">391</label><br />
+        <input type="radio" id="Q3B" name="q3option" />
+        <label for="Q3B">511</label><br />
+        <input type="radio" id="Q3C" name="q3option" />
+        <label for="Q3C">481</label><br />
+        <input type="radio" id="Q3D" name="q3option" />
+        <label for="Q3D">421</label><br />
+      </div>
+    </div>
+    <div class="Question4">
+      <h1>4.In certain code 'TIGER' is written as 'QDFHS'. How is 'FISH' written in that code?</h1>
+      <div class="options">
+        <input type="radio" id="Q4A" name="q4option" />
+        <label for="Q4A">GERH</label><br />
+        <input type="radio" id="Q4B" name="q4option" />
+        <label for="Q4B">GRHE</label><br />
+        <input type="radio" id="Q4C" name="q4option" />
+        <label for="Q4C">GREH</label><br />
+        <input type="radio" id="Q4D" name="q4option" />
+        <label for="Q4D">GHRE</label><br />
+      </div>
+    </div>
+    <div class="Question5">
+      <h1>5.A is B's sister. C is B's mother. D is C's father. E is D's mother. Then, how is A related to D?</h1>
+      <div class="options">
+        <input type="radio" id="Q5A" name="q5option" />
+        <label for="Q5A">Grandfather</label><br />
+        <input type="radio" id="Q5B" name="q5option" />
+        <label for="Q5B">Grandmother</label><br />
+        <input type="radio" id="Q5C" name="q5option" />
+        <label for="Q5C">Daughter</label><br />
+        <input type="radio" id="Q5D" name="q5option" />
+        <label for="Q5D">Granddaughter</label><br />
+      </div>
+    </div>
+    <div class="timer">
+      <p id="countdown"></p>
+    </div>
+    <button id="btnsub">SUBMIT</button>
+    <script src="script.js"></script>
+    <script>
+    //   // program to create a countdown timer
+    //   // time to countdown from (in milliseconds)
+   
+    
+      
+        
+    //   let countDownDate = new Date().getTime() + 1 * 60* 60 * 1000;
+    //   // countdown timer
+
+    //   let x = setInterval(function () {
+    //     // get today's date and time in milliseconds
+    //     let now = new Date().getTime();
+
+    //     // find the interval between now and the countdown time
+    //     let timeLeft = countDownDate - now;
+
+    //     // time calculations for days, hours, minutes and seconds
+    //     const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    //     const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
+    //     const minutes = Math.floor((timeLeft / 1000 / 60) % 60);
+    //     const seconds = Math.floor((timeLeft / 1000) % 60);
+
+    //     // display the result in the element with id="demo"
+    //     //console.log(days + "d " + hours + "h " + minutes + "m " + seconds + "s ");
+    //     document.getElementById("countdown").innerHTML =
+    //       hours + ":" + minutes + ":" + seconds;
+    //     localStorage.setItem("temp",timeLeft);
+    //     // clearing countdown when complete
+    //     if (timeLeft < 0) {
+    //       clearInterval(x);
+    //       console.log("CountDown Finished");
+    //     }
+    //   }, 1000);
+          
+    //   window.onload = function () {
+    //     if(localStorage.getItem("flag")==0)
+    //     {
+    //     localStorage.setItem("Hours",1);
+    //     localStorage.setItem("Minutes",60);
+    //     localStorage.setItem("Seconds",60);
+    //     localStorage.setItem("flag",1);
+    //     }
+    //     else
+    //     {
+    //         timeLeft = localStorage.getItem("temp") - now;
+           
+    //     }
+       
+    //   };
+    // function formatTime(seconds) {
+    //   const hours = Math.floor(seconds / 3600);
+    //   const minutes = Math.floor((seconds % 3600) / 60);
+    //   const remainingSeconds = seconds % 60;
+
+    //   return (
+    //     pad(hours) + ":" +
+    //     pad(minutes) + ":" +
+    //     pad(remainingSeconds)
+    //   );
+    // }
+
+    // // Function to pad single-digit numbers with a leading zero
+    // function pad(number) {
+    //   return (number < 10 ? "0" : "") + number;
+    // }
+
+    // // Function to start the timer
+    // function startTimer() {
+    //   let startTime;
+
+    //   // Check if there is a stored start time in localStorage
+    //   const storedTime = localStorage.getItem('timerStartTime');
+
+    //   if (storedTime) {
+    //     // Use the stored start time if available
+    //     startTime = new Date(storedTime);
+    //   } else {
+    //     // Otherwise, use the current time as the start time
+    //     startTime = new Date();
+    //     localStorage.setItem('timerStartTime', startTime);
+    //   }
+
+    //   // Update the timer every second
+    //   setInterval(() => {
+    //     const currentTime = new Date();
+    //     const elapsedSeconds = Math.floor((currentTime - startTime) / 1000);
+
+    //     // Display the formatted time
+    //     document.getElementById('countdown').innerText = formatTime(elapsedSeconds);
+    //   }, 1000);
+    // }
+
+    // // Start the timer when the page loads
+    // window.onload = startTimer;
+    function formatTime(seconds) {
+      const hours = Math.floor(seconds / 3600);
+      const minutes = Math.floor((seconds % 3600) / 60);
+      const remainingSeconds = seconds % 60;
+
+      return (
+        pad(hours) + ":" +
+        pad(minutes) + ":" +
+        pad(remainingSeconds)
+      );
+    }
+
+    // Function to pad single-digit numbers with a leading zero
+    function pad(number) {
+      return (number < 10 ? "0" : "") + number;
+    }
+
+    // Function to start or resume the countdown timer
+    function startOrResumeTimer() {
+      // Retrieve stored target and remaining time from localStorage
+      const storedTargetTime = localStorage.getItem('timerTargetTime');
+      const storedRemainingTime = localStorage.getItem('timerRemainingTime');
+      
+      let targetTimeInSeconds;
+      let remainingTime;
+
+      if (storedTargetTime && storedRemainingTime) {
+        // Use stored target and remaining time if available
+        targetTimeInSeconds = parseInt(storedTargetTime);
+        remainingTime = parseInt(storedRemainingTime);
+      } else {
+        // Set the target time (in seconds) and remaining time
+        targetTimeInSeconds = 7200; // 1 hour (adjust as needed)
+        remainingTime = targetTimeInSeconds;
+
+        // Store target and remaining time in localStorage
+        localStorage.setItem('timerTargetTime', targetTimeInSeconds);
+        localStorage.setItem('timerRemainingTime', remainingTime);
+      }
+
+      // Update the timer every second
+      setInterval(() => {
+        if (remainingTime > 0) {
+          remainingTime--;
+
+          // Display the formatted time
+          document.getElementById('countdown').innerText = formatTime(remainingTime);
+
+          // Update remaining time in localStorage
+          localStorage.setItem('timerRemainingTime', remainingTime);
+        } else {
+          
+          // Timer reached zero, you can perform additional actions here
+          window.location.href = 'End.html';
+        }
+      }, 1000);
+    }
+
+    // Start or resume the timer when the page loads
+    window.onload = startOrResumeTimer;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>START</title>
+    <link rel="stylesheet" href="sty.css">
+</head>
+<body>
+    <h1 id="topic">LogicMaster: Aptitude <br>& <br>Code Fixing Clash</h1>
+    <div class="cont">
+    <h1 id="heading">Lets Begin...</h1>
+    <div id="UserInput">
+        <input type="text" id="name" value="Enter your name...">
+        <input type="text" id="roll" value="Enter your RollNo...">
+    </div>
+    <button id="start">START</button>
+    </div>
+    <script>
+        document.getElementById("start").addEventListener('click',function(){
+            if((document.getElementById("name").value =='Enter your name...' || document.getElementById("name").value =='')&& (document.getElementById("roll").value=='Enter your RollNo...')||document.getElementById("roll").value =='')
+            {
+                window.alert("Enter the Details");
+            }
+            else
+            {
+            localStorage.setItem("UserName",document.getElementById("name").value);
+            localStorage.setItem("UserRoll",document.getElementById("roll").value);
+            window.location.href = 'quiz.html';
+            }
+        });
+
+        document.getElementById("name").onfocus = function()
+        {
+            document.getElementById("name").value = '';
+        }
+        document.getElementById("roll").onfocus = function()
+        {
+            document.getElementById("roll").value = '';
+        }
+        history.pushState(null, null, location.href);
+        window.onpopstate = function () {
+            history.go(1);
+        };
+    </script>
+</body>
+</html>
